@@ -65,6 +65,52 @@ router.post('/',(req,res) => {
         }
     })
 })
+
+//PUT API Update
+router.put('/:id',(req,res) => {
+    
+    if(ObjectId.isValid(req.params.id)){
+
+        let cust = {
+            cust_name : req.body.cust_name,
+            address: req.body.address,
+            phone_no: req.body.phone_no
+        };
+
+        Customer.findByIdAndUpdate(req.params.id,{$set:cust},{new:true},(err,doc) => {
+            if(err){
+                console.log("Error in Updating  customer by id" +err)
+            }else{
+                res.send(doc);
+            }
+        })
+
+    }else{
+        return res.status(400).send('No Record Found with id' +req.params.id)
+    }
+  
+
+})
+
+//DELETE API
+router.delete('/:id',(req,res) => {
+    
+    if(ObjectId.isValid(req.params.id)){
+
+        Customer.findByIdAndRemove(req.params.id, (err,doc) => {
+            if(err){
+                console.log("Error in delete customer by id" +err)
+            }else{
+                res.send(doc);
+            }
+        })
+
+    }else{
+        return res.status(400).send('No Record Found with id' +req.params.id)
+    }
+  
+
+})
  
 //exports router so that we can import any other files
 module.exports =  router;
