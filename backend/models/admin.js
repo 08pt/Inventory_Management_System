@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 const Admin  =  mongoose.model('Admin',{
    username : {
-      type: string,
+      type: String,
       required:true
    },
    password :{
-      type:string,
+      type: String,
       required :true
    }
 });

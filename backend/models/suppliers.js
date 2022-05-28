@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const Supplier  =  mongoose.model('Supplier',{
-    nameOfCompany : {type: string},
-    deleivery_date:{type:date},
-    prod_id:{type:number}
+    nameOfCompany : {type: String},
+    deleivery_date:{type:Date},
+    prod_id:{type:Number}
 });
 module.exports = Supplier;
