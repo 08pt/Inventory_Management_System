@@ -5,7 +5,9 @@ const cors = require('cors')
 
 const mongoose = require('./db.js');
 
-const routes = require('./routes/routes');
+const routesCustomers= require('./routes/customers.route.js');
+const routesSuppliers= require('./routes/supplier.route.js');
+
 
 
 const app = express();
@@ -16,8 +18,14 @@ app.use(bodyParser.json());
 
 app.use(cors({origin:'https://localhost:4200'}));
 
+app.use(express.urlencoded({ extended: false }));
+
+
 
 //with the listen can only start our server
+
+app.use('/customers',routesCustomers);
+app.use('/suppliers',routesSuppliers);
+
 app.listen(3000,() => console.log('Express Server Started at Port: 3000'));
 
-app.use('/customer',routes);
