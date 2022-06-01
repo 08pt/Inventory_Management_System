@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Supplier  =  mongoose.model('Supplier',{
     prod_id:{type:Number},
-    nameOfCompany : {
+    nameOfSupplier : {
     type: String, 
     required:true
 },

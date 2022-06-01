@@ -45,7 +45,7 @@ router.get('/:prod_id',(req,res)=>{
 router.post('/',(req,res) => {
     let sup = new Supplier({
         prod_id:req.body.prod_id,
-        nameOfCompany: req.body.nameOfCompany,
+        nameOfSupplier: req.body.nameOfSupplier,
         delivery_date:req.body.delivery_date
        
          });
@@ -88,12 +88,12 @@ router.delete('/:prod_id',(req,res)=>{
 
 //search comapny  by name
 
-router.get("/comp/:nameOfCompany", function (req, res) {
-    let compName = req.params.compName;
+router.get("/supp/:nameOfSupplier", function (req, res) {
+    let supName = req.params.supName;
 
-    console.log("Search company by name "+req.params.nameOfCompany);
+    console.log("Search company by name "+req.params.nameOfSupplier);
 
-    Supplier.findOne({compName}, function (err, data) {
+    Supplier.findOne({supName}, function (err, data) {
       if (err) {
         res.status(500).json({ status: false, message: err });
       } else {

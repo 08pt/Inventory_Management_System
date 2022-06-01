@@ -27,7 +27,7 @@ router.get('/',(req,res) => {
         }
     })
 })
-// Get Products  by id
+// Get Items  by Item no
 router.get('/:item_no',(req,res)=>{
     const{item_no}=req.params;
     
@@ -46,14 +46,15 @@ router.get('/:item_no',(req,res)=>{
 router.post('/',(req,res) => {
     let itm = new Items({
         item_no:req.body.item_no,
-        item_Name :req.body.item_Name,
+        item_Name:req.body.item_Name,
         brand:req.body.brand,
         quantity:req.body.quantity,
         price:req.body.price,
         supplier:req.body.supplier,
         created_at:req.body.created_at,
-        updated_at:req.body.updated_at,
-    });
+        updated_at:req.body.updated_at
+       
+         });
     itm.save((err , doc ) => {
         if(err){
             console.log("Error in Post Data", +err)
@@ -91,14 +92,15 @@ router.delete('/:item_no',(req,res)=>{
      });
     
 });
-//search comapny  by name
+//search item  by name
 
 router.get("/item/:item_Name", function (req, res) {
-    let itemName = req.params.itemName;
+    
+    let iName = req.params.iName;
 
     console.log("Search Item by name "+req.params.item_Name);
 
-    Supplier.findOne({itemName}, function (err, data) {
+    Items.findOne({iName}, function (err, data) {
       if (err) {
         res.status(500).json({ status: false, message: err });
       } else {
@@ -108,6 +110,5 @@ router.get("/item/:item_Name", function (req, res) {
     });
   });
 
- 
 //exports router so that we can import any other files
 module.exports =  router;
