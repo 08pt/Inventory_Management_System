@@ -8,7 +8,7 @@ const mongoose = require('./db.js');
 const routesCustomers= require('./routes/customers.route.js');
 const routesSuppliers= require('./routes/supplier.route.js');
 const routeItem= require('./routes/item.route.js');
-// const routeAdmin= require('./routes/admin.route.js');
+const routeAdmin= require('./routes/admin.route.js');
 
 
 
@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/customers',routesCustomers);
 app.use('/suppliers',routesSuppliers);
-// app.use('/user',routeAdmin);
+app.use('/admin',routeAdmin);
 app.use('/items',routeItem);
 
 
