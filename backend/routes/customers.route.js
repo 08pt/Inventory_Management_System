@@ -14,47 +14,43 @@ const Customer = require('../models/customers.js');
 //Base path of routes is http://localhost:3000/customer
 
 
-//GET API for CUSTOMER to fetch all the customer details
+//GET API for supplier to fetch all the supplier details
 router.get('/',(req,res) => {
-    //to get data we need Customer Model here
+    //to get data we need supplier Model here
     Customer.find((err,doc) => {
         if(err){
-            console.log("Error in getting data from customer collection",err);
+            console.log("Error in getting data from supplier collection",err);
         }else{
             res.send(doc);
         }
     })
 })
-//GET API for CUSTOMER to fetch single  customer details using id
-router.get('/:id',(req,res) => {
+// Get Products  by id
+router.get('/:cust_id',(req,res)=>{
+    const{cust_id}=req.params;
     
-    if(ObjectId.isValid(req.params.id)){
-
-        Customer.findById(req.params.id, (err,doc) => {
-            if(err){
-                console.log("Error in getting customer by id" +err)
-            }else{
-                res.send(doc);
-            }
+    Customer.findOne({cust_id},function(err,data){
+        if(err){
+            console.log('Error in getting  Data'+err)
+       }
+        else{
+            res.send(data);
+        }
         })
-
-    }else{
-        return res.status(400).send('No Record Found with id' +req.params.id)
-    }
-  
-
-})
+    })
 
 
-//POST API for CUSTOMER
+//POST API for supplier add data into the database
 router.post('/',(req,res) => {
     let cust = new Customer({
-        cust_id:req.params.cust_id,
-        cust_name : req.body.cust_name,
+        cust_id:req.body.cust_id,
+        cust_name:req.body.cust_name,
+
         address: req.body.address,
-        phone_no: req.body.phone_no
-    });
-    cust.save((err , doc ) => {
+        phone_no:req.body.phone_no
+       
+         });
+   cust.save((err , doc ) => {
         if(err){
             console.log("Error in Post Data", +err)
         }else{
@@ -62,53 +58,49 @@ router.post('/',(req,res) => {
         }
     })
 });
-
 //PUT API Update
-router.put('/:id',(req,res) => {
+
+router.put('/:cust_id',function(req,res){
+    const {cust_id}=req.params;
+   Customer.findOneAndUpdate({cust_id},req.body,function(err,data){
+        
+        if(err){
+            console.log('Error in get employee by id'+err)
+       }
+        else{
+            res.send(data);
+        }
+     });
     
-    if(ObjectId.isValid(req.params.id)){
-
-        let cust = {
-            cust_id   :  req.params.cust_id,
-            cust_name : req.body.cust_name,
-            address  : req.body.address,
-            phone_no  : req.body.phone_no
-        };
-
-        Customer.findByIdAndUpdate(req.params.id,{$set:cust},{new:true},(err,doc) => {
-            if(err){
-                console.log("Error in Updating  customer by id" +err)
-            }else{
-                res.send(doc);
-            }
-        })
-
-    }else{
-        return res.status(400).send('No Record Found with id' +req.params.id)
-    }
-  
-
-})
-
-//DELETE API
-router.delete('/:id',(req,res) => {
-    
-    if(ObjectId.isValid(req.params.id)){
-
-        Customer.findByIdAndRemove(req.params.id, (err,doc) => {
-            if(err){
-                console.log("Error in delete customer by id" +err)
-            }else{
-                res.send(doc);
-            }
-        })
-
-    }else{
-        return res.status(400).send('No Record Found with id' +req.params.id)
-    }
-  
-
 });
+//DELETE API
+router.delete('/:cust_id',(req,res)=>{
+    const {cust_id}=req.params;
+    Customer.findOneAndRemove({cust_id},(err,doc)=>{
+        if(err){
+            console.log('Error in delete employee by id'+err)
+       }
+        else{
+            res.send(doc);
+        }
+     });
+    
+});
+
+//search product by name
+
+router.get('/search/:key',async(req,res)=>{
+    console.log(req.params.key)
+    let data=await Customer.find({
+        "$or":[
+            {
+                "cust_name":{
+                    $regex:req.params.key
+                }}
+            ]
+    })
+    res.send(data)
+})
  
 //exports router so that we can import any other files
 module.exports =  router;

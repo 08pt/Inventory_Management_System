@@ -1,13 +1,30 @@
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
-const Admin  =  mongoose.model('Admin',{
-   username : {
-      type: String,
-      required:true
-   },
-   password :{
-      type: String,
-      required :true
-   }
+const UserSchema = new mongoose.Schema({
+    firstname: String,
+   //  lastname: String,
+   //  phone: String,
+    email: String,
+    password: String,
+    IsAdmin: Boolean
 });
-module.exports = Admin;
+
+UserSchema.methods.generateToken = function () {
+    return jwt.sign({ id: this.email }, config.secret, { expiresIn: 86400 })
+}
+
+UserSchema.methods.hashPassword = function () {
+    this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10))
+}
+
+UserSchema.methods.comparePassword = function (password) {
+    return bcrypt.compareSync(password, this.password);
+}
+
+UserSchema.methods.log = function () {
+    console.log(this);
+}
+
+module.exports = mongoose.model('User', UserSchema);
