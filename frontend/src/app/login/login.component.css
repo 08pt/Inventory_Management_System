@@ -1,0 +1,27 @@
+.card{
+    text-align: center;
+    border: none;;
+    width: 500px;
+    padding: 10px;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: skyblue;
+    background-color: rgb(16, 152, 170);
+}
+.card label h6,
+h1{
+    color: #fff;
+}
+.card label h1,
+h6{
+    color: #fff;
+}
+label{
+    color: #fff;
+}
+button{
+    color:#fff;
+    background: blue;
+}

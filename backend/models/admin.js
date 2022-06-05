@@ -1,13 +1,9 @@
 const mongoose = require('mongoose');
 
-const Admin  =  mongoose.model('Admin',{
-   userName : {
-      type: String,
-      required:true
-   },
-   password :{
-      type: String,
-      required :true
-   }
-});
-module.exports = {Admin};
+var admin = mongoose.model('admin',{
+    userName:{type:String},
+    email:{type:String},
+    password:{type:String}
+})
+
+module.exports = {admin};

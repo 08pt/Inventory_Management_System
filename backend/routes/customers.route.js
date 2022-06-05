@@ -8,24 +8,26 @@ const router =  express.Router();
 const ObjectId = require('mongoose').Types.ObjectId;
 
 //import customer model
-const Customer = require('../models/customers.js');
+const {Customer} = require('../models/customers.js');
 
 //Now we are creating API's These are - Get , Post, Put, Delete
 //Base path of routes is http://localhost:3000/customer
 
 
-//GET API for supplier to fetch all the supplier details
-router.get('/',(req,res) => {
-    //to get data we need supplier Model here
-    Customer.find((err,doc) => {
-        if(err){
-            console.log("Error in getting data from supplier collection",err);
-        }else{
-            res.send(doc);
-        }
-    })
-})
-// Get Products  by id
+// fetch all the Customers details
+router.get('/', function(req, res, next) {
+   Customer.find({},function (err, data) {
+       if (err) {
+         res.status(500).json({ status: false, message: err });
+       } else {
+         res.status(200).json({ status: true, data, message: "Data found!" });
+         console.log(data)
+       }
+     })
+   });
+
+   
+// // Get Products  by id
 router.get('/:cust_id',(req,res)=>{
     const{cust_id}=req.params;
     
@@ -40,14 +42,29 @@ router.get('/:cust_id',(req,res)=>{
     })
 
 
-//POST API for supplier add data into the database
+//Login a customer
+router.post('/', function(req, res, next) {
+    Customer.findOne({user:req.body.user ,password:req.body.password}).then(data=>{
+  if(data){
+    res.status(200).json(data)
+  }else{
+    res.status(401).json({error:"incorrect user or password"})
+  }
+    }).catch(err=>{
+      res.status(500).json({error:err.message})
+    })
+      
+    
+  })
+// add customers  into the database
 router.post('/',(req,res) => {
     let cust = new Customer({
         cust_id:req.body.cust_id,
+        email:req.body.email,
         cust_name:req.body.cust_name,
-
         address: req.body.address,
-        phone_no:req.body.phone_no
+        phone_no:req.body.phone_no,
+        password:req.body.password,
        
          });
    cust.save((err , doc ) => {

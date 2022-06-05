@@ -1,0 +1,49 @@
+.container{
+    background-color: antiquewhite;
+    width: 60%;
+   margin-left: 15rem;
+   padding: 1px;
+   
+}
+
+.card-header{
+    text-align: center;
+}
+.card-title{
+    text-transform:uppercase;
+}
+.card-body{
+    text-align:  center;
+    padding: 0;
+    
+}
+input[type = text]{
+    padding:  10px;
+    margin:  10px 0;
+    border: 0 ;
+    box-shadow:  0 0 15px 4 px rgba(0,0,0,0,0.06);
+    border-radius: 10px;
+}
+
+input[type = date]{
+    padding:  10px;
+    margin:  10px 0;
+    border: 0 ;
+    box-shadow:  0 0 15px 4 px rgba(0,0,0,0,0.06);
+    border-radius: 10px;
+}
+button {
+
+   
+  
+    /* usual styles */
+    padding:10px;
+    border:none;
+    background-color:#3F51B5;
+    color:#fff;
+    font-weight:600;
+    border-radius:5px;
+    padding: 0.5rem  1.8rem  0.5rem 1.8rem ;
+  
+  
+  }

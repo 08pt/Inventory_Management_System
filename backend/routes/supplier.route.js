@@ -88,12 +88,13 @@ router.delete('/:prod_id',(req,res)=>{
 
 //search comapny  by name
 
+
 router.get("/comp/:nameOfCompany", function (req, res) {
-    let compName = req.params.compName
+    let compName = req.params.nameOfCompany;
 
     console.log("Search company by name "+req.params.nameOfCompany);
 
-    Supplier.findOne({compName}, function (err, data) {
+    Supplier.findOne({"nameOfCompany":compName}, function (err, data) {
       if (err) {
         res.status(500).json({ status: false, message: err });
       } else {
@@ -102,6 +103,7 @@ router.get("/comp/:nameOfCompany", function (req, res) {
       }
     });
   });
+
 
 //export this router to use in our index.js
 module.exports = router;

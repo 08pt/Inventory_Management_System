@@ -8,7 +8,7 @@ const router =  express.Router();
 const ObjectId = require('mongoose').Types.ObjectId;
 
 //import items model
-const Items = require('../models/items.js');
+const Items = require('../models/items');
 
 
 //Now we are creating API's These are - Get , Post, Put, Delete
@@ -45,14 +45,14 @@ router.get('/:item_no',(req,res)=>{
 //POST API for supplier add data into the database
 router.post('/',(req,res) => {
     let itm = new Items({
-        item_no:req.body.item_no,
-        item_Name:req.body.item_Name,
-        brand:req.body.brand,
-        quantity:req.body.quantity,
-        price:req.body.price,
-        supplier:req.body.supplier,
-        created_at:req.body.created_at,
-        updated_at:req.body.updated_at
+        item_no:req.body.itemNo,
+        item_Name:req.body.itemName,
+        brand:req.body.itemBrand,
+        quantity:req.body.itemQuantity,
+        price:req.body.itemPrice,
+        supplier:req.body.itemSupplier,
+        created_at:req.body.itemCreatedAt,
+        updated_at:req.body.itemUpdatedAt
        
          });
     itm.save((err , doc ) => {
@@ -94,13 +94,13 @@ router.delete('/:item_no',(req,res)=>{
 });
 //search item  by name
 
-router.get("/item/:item_Name", function (req, res) {
+router.get("/itm/:item_Name", function (req, res) {
     
-    let iName = req.params.iName;
+    let iName = req.params.item_Name;
 
     console.log("Search Item by name "+req.params.item_Name);
 
-    Items.findOne({iName}, function (err, data) {
+    Items.findOne({"item_Name":iName}, function (err, data) {
       if (err) {
         res.status(500).json({ status: false, message: err });
       } else {

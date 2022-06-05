@@ -1,0 +1,65 @@
+/* UTILITIES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   }
+   body {
+    font-family: cursive;
+   }
+   a {
+    display: block;
+    text-decoration: none;
+   
+   }
+   li {
+    float: right;
+    list-style: none;
+  
+   }
+   .navbar {
+  
+   
+    justify-content: space-between;
+    padding: 8px;
+    background-color: teal;
+    color: #fff;
+   }
+
+   .nav-links a {
+    color: #fff;
+   }
+   .navbar-brand{
+       font-size: 22px;
+       
+   }
+   .menu  {
+    display: flex;
+    gap: 1em;
+    font-size: 15px;
+    margin-left: 30rem;
+   }
+
+   .menu li:hover {
+    background-color: #4c9e9e;
+    border-radius: 5px;
+    transition: 0.3s ease;
+   }
+   .menu li {
+    padding: 5px 14px;
+   }
+
+
+.container{
+    margin: 2px;
+    padding: 4px;
+    width: 100%;
+}
+.container{
+
+    background-image: url('/frontend/src/assets/inventory-management-system.webp');
+ background-position: center;
+    background-repeat: no-repeat;
+   
+
+}
