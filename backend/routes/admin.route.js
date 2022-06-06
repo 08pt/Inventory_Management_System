@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-const ObjectId = require('mongoose').Types.ObjectId
-const  {admin } = require('../models/admin');
+// const ObjectId = require('mongoose').Types.ObjectId
+const   admin  = require('../models/admin');
 
 
-// get for customer
+// get home  for customer
 router.get('/',(req,res)=>{
     admin.find((err,doc)=>{
         if(!err){console.error(res.send(doc))}

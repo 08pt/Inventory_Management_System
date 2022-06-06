@@ -1,0 +1,33 @@
+
+<div class="container"  ng-controller="mycontroller">
+    <input type="text" class="form-control"  name="name"  [(ngModel)]="searchText" (ngModelChange)="search()"  placeholder="search here" />
+    <br/>
+    <br/>
+    
+    <table datatable class="row-border hover" >
+      <thead>
+        <tr>
+          <th>Customer Id</th>
+          <th>Customer name</th>
+          <th>Customer Adddress</th>
+          <th>Phone Number</th>
+          <th>Disease</th>
+        
+          <th>Edit &nbsp;<span class="glyphicon glyphicon-pencil"></span></th>
+          <th >Delete &nbsp;<span class="glyphicon glyphicon-trash"></span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let c of Customer;'>
+          <td>{{c.cust_id}}</td>
+          <td>{{c.email}}</td>
+          <td>{{c.cust_name}}</td>
+          <td>{{c.address}}</td>
+          <td>{{c.phone_no}}</td>
+          <td>{{c.password}}</td>
+            <td><button type="button" id="Edit" class="btn btn-danger">update</button></td>
+            <td><button type="button" id="delete" class="btn btn-danger">Delete</button></td>
+        </tr >
+      </tbody>
+    </table>
+  </div>

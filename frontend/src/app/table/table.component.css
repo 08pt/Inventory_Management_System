@@ -1,0 +1,31 @@
+th, td 
+  {
+    padding: 5px;
+    text-align: left;
+  }
+
+  tr:hover {background-color: rgb(238, 200, 139);}
+
+  table 
+    {
+    border-collapse: collapse;
+    width: 800px;
+    padding-left: 10px;
+    
+    }
+  table, td, th 
+  {  
+    border: 1px solid #ddd;
+    text-align: left;
+    
+    
+  }
+  div{
+    padding-left: 55px;
+    padding-top: 30px;
+    box-shadow: 1px 2px 10px 1px   black;
+    width:900px;
+    align-items: center;
+    padding-bottom: 30px;
+    padding-right: 55px;
+  }

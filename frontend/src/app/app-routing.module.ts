@@ -8,19 +8,24 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomersComponent } from './customers/customers.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
+import { NavigationComponent } from './navigation/navigation.component';
+
 
 
 const routes: Routes = [
   
   // { path: 'header', component: HeaderComponent },
-  {path:'',component:DashboardComponent},
   { path: 'home', component: HomeComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'items', component: ItemComponent },
   { path: 'suppliers', component: SupplierComponent },
   { path: 'customers', component:CustomersComponent},
   { path: 'registration', component:RegistrationComponent},
-  { path: 'login', component:LoginComponent}
+  { path: 'login', component:LoginComponent},
+  { path: 'dashboard', component:DashboardComponent},
+  { path: 'navigation', component: NavigationComponent },
+
+
 // { path: 'footer', component: FooterComponent }
 ];
 

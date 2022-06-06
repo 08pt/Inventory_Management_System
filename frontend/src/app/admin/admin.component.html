@@ -1,4 +1,4 @@
-<body>
+<!-- <body>
 
     <div class="container">
       <div class="row">
@@ -11,19 +11,19 @@
       
                       <form>
                           <div class="mb-3">
-                            <label for="exampleInputUserName" class="form-label">User Name</label><br>
+                            <label for="exampleInputUserName" class=" cls form-label" >User Name</label><br>
     
                             <input type="text" class="form-control" id="exampleInputUserName" >
                             
                           </div>
                           <div class="mb-3">
-                            <label for="exampleInputUserName" class="form-label">Email</label><br>
+                            <label for="exampleInputUserName" class=" cls form-label">Email</label><br>
     
                             <input type="text" class="form-control" id="exampleInputEmail" >
                             
                           </div>
                           <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label><br>
+                            <label for="exampleInputPassword1" class="cls form-label">Password</label><br>
                             <input type="password" class="form-control" id="exampleInputPassword1">
                           </div>
                           <br>
@@ -34,4 +34,40 @@
           </div>
       </div>
     </div>
-    </body>
+    </body> -->
+
+    <div class="main">
+      <h1 style="font-weight: bold;">INVENTORY MANAGEMENT SYSTEM</h1>
+      </div>
+      <!-- Login Page -->
+      <div class="card">
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="card-1">
+                          <form class="container" >
+                              <div class="mb-3">
+                                  <h2>Login</h2>
+                                  <h5>Please enter your username & password</h5>
+                              </div>
+                              <div class="mb-3">
+                                  <label for="email">UserName :&nbsp;&nbsp; </label>
+                                  <input type="email" id="username"  name="email" [(ngModel)]="email" /><br>
+                              </div>
+                              <br>
+                              <div class="mb-3">
+                                  <label for="password">Password  :&nbsp;&nbsp; </label>
+                                  <input type="password" id="password"   name="password" [(ngModel)]="password" />
+                              </div><br>
+                              <input type="submit" id="submit" value="Log in" class="submit" (click)="login()">
+                              <footer class="page-footer font-small blue" style="padding-bottom: 30px;">
+                             
+                              </div>
+                              </footer>
+                              
+                          </form>
+                          
+                  </div>
+              </div>
+          </div>
+          
+      </div>

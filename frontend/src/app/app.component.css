@@ -10,6 +10,9 @@
    a {
     display: block;
     text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #fff;
    
    }
    li {
@@ -37,7 +40,7 @@
     display: flex;
     gap: 1em;
     font-size: 15px;
-    margin-left: 30rem;
+    margin-left: 4rem;
    }
 
    .menu li:hover {
@@ -52,7 +55,7 @@
 
 .container{
     margin: 2px;
-    padding: 4px;
+    padding: 2px;
     width: 100%;
 }
 .container{

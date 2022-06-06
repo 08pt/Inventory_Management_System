@@ -1,0 +1,36 @@
+
+
+.container{
+    background-color: rgb(130, 237, 237);
+}
+
+
+.grid-container {
+    margin: 10px;
+  }
+  body {
+  padding-left: 10px;
+  
+  }
+  
+  img{
+      text-align: center;
+  }
+  .column1 {
+   
+  padding-top: 10px;
+  margin: 5px;
+  
+  
+  }
+  .column2 {
+  
+  
+    padding-top: 10px;
+    margin: 5px;
+  }
+  .column3 {
+   
+    padding-top: 10px;
+    margin: 5px;
+  }

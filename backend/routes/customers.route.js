@@ -8,7 +8,7 @@ const router =  express.Router();
 const ObjectId = require('mongoose').Types.ObjectId;
 
 //import customer model
-const {Customer} = require('../models/customers.js');
+const Customer = require('../models/customers.js');
 
 //Now we are creating API's These are - Get , Post, Put, Delete
 //Base path of routes is http://localhost:3000/customer

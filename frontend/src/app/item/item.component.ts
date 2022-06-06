@@ -35,6 +35,7 @@ export class ItemComponent implements OnInit {
 
   postAPI(){
   const data =  JSON.parse(JSON.stringify(this.itemPostFormGroup.value))
+  console.log(data);
   return this.http.post("http://localhost:3000/items",data);
 
   

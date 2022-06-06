@@ -1,8 +1,64 @@
-body{
-    background:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT94N83HaajNHXZ2Pt0p_Y6PLIHT-RRBPSyfQ&usqp=CAU");
-   
-    height: 1000px;
-    background-size:contain;
-    background-position:right;
+h1{
+    text-align: center;
+}
+.container{
+  
+    background-color: rgb(130, 237, 237);
+    width: 400px;
+   margin-left: 15rem;
+   padding: 20px;
+}
+.cls{
+    padding-left: 4rem;
+}
 
+.card-header{
+    text-align: center;
+}
+h1{
+    text-transform:uppercase;
+}
+.card-body{
+    text-align:  center;
+    padding: 0;
+    
+}
+input[type = email]{
+    padding:  10px;
+    margin:  10px 0;
+    border: 0 ;
+    box-shadow:  0 0 15px 4 px rgba(0,0,0,0,0.06);
+    border-radius: 10px;
+}
+input[type = text]{
+    padding:  10px;
+    margin:  10px 0;
+    border: 0 ;
+    box-shadow:  0 0 15px 4 px rgba(0,0,0,0,0.06);
+    border-radius: 10px;
+}
+
+input[type = date]{
+    padding:  10px;
+    margin:  10px 0;
+    border: 0 ;
+    box-shadow:  0 0 15px 4 px rgba(0,0,0,0,0.06);
+    border-radius: 10px;
+}
+input[type = password]{
+    padding:  10px;
+    margin:  10px 0;
+    border: 0 ;
+    box-shadow:  0 0 15px 4 px rgba(0,0,0,0,0.06);
+    border-radius: 10px;
+}
+button {
+    /* usual styles */
+    padding:10px;
+    border:none;
+    background-color:#79ddf1;
+    color:#fff;
+    font-weight:600;
+    border-radius:5px;
+    padding: 0.5rem  1.8rem  0.5rem 1.8rem ;
 }
