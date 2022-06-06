@@ -10,7 +10,6 @@ import { SupplierComponent } from './supplier/supplier.component';
 import { ItemComponent } from './item/item.component';
 import { AdminComponent } from './admin/admin.component';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomersComponent } from './customers/customers.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -39,7 +38,6 @@ const appRoutes: Routes = [
     ItemComponent,
     AdminComponent,
     HeaderComponent,
-    FooterComponent,
     LoginComponent,
     DashboardComponent,
     CustomersComponent,

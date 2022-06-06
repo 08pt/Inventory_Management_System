@@ -42,20 +42,20 @@ router.get('/:cust_id',(req,res)=>{
     })
 
 
-//Login a customer
-router.post('/', function(req, res, next) {
-    Customer.findOne({user:req.body.user ,password:req.body.password}).then(data=>{
-  if(data){
-    res.status(200).json(data)
-  }else{
-    res.status(401).json({error:"incorrect user or password"})
-  }
-    }).catch(err=>{
-      res.status(500).json({error:err.message})
-    })
+// //Login a customer
+// router.post('/', function(req, res, next) {
+//     Customer.findOne({user:req.body.user ,password:req.body.password}).then(data=>{
+//   if(data){
+//     res.status(200).json(data)
+//   }else{
+//     res.status(401).json({error:"incorrect user or password"})
+//   }
+//     }).catch(err=>{
+//       res.status(500).json({error:err.message})
+//     })
       
     
-  })
+//   })
 // add customers  into the database
 router.post('/',(req,res) => {
     let cust = new Customer({
